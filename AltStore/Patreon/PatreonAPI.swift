@@ -402,7 +402,7 @@ private extension PatreonAPI
     func deactivateBetaApps(in context: NSManagedObjectContext)
     {
         let predicate = NSPredicate(format: "%K != %@ AND %K != nil AND %K == YES",
-                                    #keyPath(InstalledApp.bundleIdentifier), StoreApp.altstoreAppID, #keyPath(InstalledApp.storeApp), #keyPath(InstalledApp.storeApp.isBeta))
+                                    #keyPath(InstalledApp.bundleIdentifier), StoreApp.altstoreAppID, #keyPath(InstalledApp.storeApp), #keyPath(InstalledApp.storeApp.isBranch))
         
         let installedApps = InstalledApp.all(satisfying: predicate, in: context)
         installedApps.forEach { $0.isActive = false }

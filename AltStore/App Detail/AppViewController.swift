@@ -86,7 +86,8 @@ class AppViewController: UIViewController
         self.bannerView.iconImageView.image = nil
         self.bannerView.iconImageView.tintColor = self.app.tintColor
         self.bannerView.button.tintColor = self.app.tintColor
-        self.bannerView.betaBadgeView.isHidden = !self.app.isBeta
+        // IMPLEMENT TEXT CHANGING ACCORDING TO self.app.branch HERE
+        self.bannerView.branchBadgeView.isHidden = !self.app.isBranch
         self.bannerView.tintColor = self.app.tintColor
         
         self.bannerView.button.addTarget(self, action: #selector(AppViewController.performAppAction(_:)), for: .primaryActionTriggered)

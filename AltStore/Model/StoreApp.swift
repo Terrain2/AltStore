@@ -47,7 +47,8 @@ class StoreApp: NSManagedObject, Decodable, Fetchable
     
     @NSManaged private(set) var downloadURL: URL
     @NSManaged private(set) var tintColor: UIColor?
-    @NSManaged private(set) var isBeta: Bool
+    @NSManaged private(set) var isBranch: Bool
+    @NSManaged private(set) var branch: String
     
     @NSManaged var sourceIdentifier: String?
     
@@ -95,6 +96,7 @@ class StoreApp: NSManagedObject, Decodable, Fetchable
         case subtitle
         case permissions
         case size
+        case branch
         case isBeta = "beta"
     }
     
@@ -131,7 +133,14 @@ class StoreApp: NSManagedObject, Decodable, Fetchable
         }
         
         self.size = try container.decode(Int32.self, forKey: .size)
-        self.isBeta = try container.decodeIfPresent(Bool.self, forKey: .isBeta) ?? false
+        self.branch = try container.decodeIfPresent(String.self, forKey: .branch) ?? ""
+        // remove legacyBeta sometime, let repos transition first (maybe with stable release?)
+        let legacyBeta = try container.decodeIfPresent(Bool.self, forKey: .isBeta) ?? false
+        if self.branch.isEmpty && legacyBeta
+        {
+            self.branch = "BETA"
+        }
+        self.isBranch = !self.branch.isEmpty
         
         let permissions = try container.decodeIfPresent([AppPermission].self, forKey: .permissions) ?? []
         
@@ -161,9 +170,13 @@ extension StoreApp
         app.version = "1.0"
         app.versionDate = Date()
         app.downloadURL = URL(string: "http://rileytestut.com")!
-        
-        #if BETA
-        app.isBeta = true
+        #if ALPHA || BETA
+            #if ALPHA
+            app.branch = "ALPHA"
+            #else
+            app.branch = "BETA"
+            #endif
+        app.isBranch = true
         #endif
         
         return app

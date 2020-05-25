@@ -18,7 +18,7 @@ class AppBannerView: RSTNibView
     @IBOutlet var iconImageView: AppIconImageView!
     @IBOutlet var button: PillButton!
     @IBOutlet var buttonLabel: UILabel!
-    @IBOutlet var betaBadgeView: UIView!
+    @IBOutlet var branchBadgeView: UIImageView!
     
     @IBOutlet var backgroundEffectView: UIVisualEffectView!
     @IBOutlet private var vibrancyView: UIVisualEffectView!

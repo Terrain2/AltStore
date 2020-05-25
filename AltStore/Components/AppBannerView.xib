@@ -11,7 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AppBannerView" customModule="AltStore" customModuleProvider="target">
             <connections>
                 <outlet property="backgroundEffectView" destination="rZk-be-tiI" id="fzU-VT-JeW"/>
-                <outlet property="betaBadgeView" destination="qQl-Ez-zC5" id="6O1-Cx-7qz"/>
+                <outlet property="branchBadgeView" destination="qQl-Ez-zC5" id="6gc-h9-5SH"/>
                 <outlet property="button" destination="tVx-3G-dcu" id="joa-AH-syX"/>
                 <outlet property="buttonLabel" destination="Yd9-jw-faD" id="o7g-Gb-CIt"/>
                 <outlet property="iconImageView" destination="avS-dx-4iy" id="TQs-Ej-gin"/>

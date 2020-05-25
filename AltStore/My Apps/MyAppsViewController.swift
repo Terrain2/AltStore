@@ -201,7 +201,8 @@ private extension MyAppsViewController
             cell.bannerView.titleLabel.text = app.name
             cell.bannerView.iconImageView.image = nil
             cell.bannerView.iconImageView.isIndicatingActivity = true
-            cell.bannerView.betaBadgeView.isHidden = !app.isBeta
+            // IMPLEMENT TEXT CHANGING ACCORDING TO app.branch HERE
+            cell.bannerView.branchBadgeView.isHidden = !app.isBranch
             
             cell.bannerView.button.isIndicatingActivity = false
             cell.bannerView.button.addTarget(self, action: #selector(MyAppsViewController.updateApp(_:)), for: .primaryActionTriggered)
@@ -293,7 +294,8 @@ private extension MyAppsViewController
             }
             
             cell.bannerView.iconImageView.isIndicatingActivity = true
-            cell.bannerView.betaBadgeView.isHidden = !(installedApp.storeApp?.isBeta ?? false)
+            // IMPLEMENT TEXT CHANGING ACCORDING TO installedApp.storeApp?.branch HERE
+            cell.bannerView.branchBadgeView.isHidden = !(installedApp.storeApp?.isBranch ?? false)
             
             cell.bannerView.buttonLabel.isHidden = false
             cell.bannerView.buttonLabel.text = NSLocalizedString("Expires in", comment: "")
@@ -381,7 +383,8 @@ private extension MyAppsViewController
             cell.tintColor = UIColor.gray
             
             cell.bannerView.iconImageView.isIndicatingActivity = true
-            cell.bannerView.betaBadgeView.isHidden = !(installedApp.storeApp?.isBeta ?? false)
+            // IMPLEMENT TEXT CHANGING ACCORDING TO installedApp.storeApp?.branch HERE
+            cell.bannerView.branchBadgeView.isHidden = !(installedApp.storeApp?.isBranch ?? false)
             
             cell.bannerView.buttonLabel.isHidden = true
             cell.bannerView.alpha = 1.0
@@ -437,7 +440,7 @@ private extension MyAppsViewController
         {
             self.dataSource.predicate = NSPredicate(format: "%K == nil OR %K == NO OR %K == %@",
                                                     #keyPath(InstalledApp.storeApp),
-                                                    #keyPath(InstalledApp.storeApp.isBeta),
+                                                    #keyPath(InstalledApp.storeApp.isBranch),
                                                     #keyPath(InstalledApp.bundleIdentifier), StoreApp.altstoreAppID)
         }
     }

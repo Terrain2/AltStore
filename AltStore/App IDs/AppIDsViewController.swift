@@ -78,7 +78,7 @@ private extension AppIDsViewController
                         
             cell.bannerView.iconImageView.isHidden = true
             cell.bannerView.button.isIndicatingActivity = false
-            cell.bannerView.betaBadgeView.isHidden = true
+            cell.bannerView.branchBadgeView.isHidden = true
             
             cell.bannerView.buttonLabel.text = NSLocalizedString("Expires in", comment: "")
             

@@ -87,7 +87,8 @@ private extension BrowseViewController
             cell.imageURLs = Array(app.screenshotURLs.prefix(2))
             cell.bannerView.titleLabel.text = app.name
             cell.bannerView.subtitleLabel.text = app.developerName
-            cell.bannerView.betaBadgeView.isHidden = !app.isBeta
+            // IMPLEMENT TEXT CHANGING ACCORDING TO app.branch HERE
+            cell.bannerView.branchBadgeView.isHidden = !app.isBranch
             
             cell.bannerView.iconImageView.image = nil
             cell.bannerView.iconImageView.isIndicatingActivity = true
@@ -167,7 +168,7 @@ private extension BrowseViewController
         }
         else
         {
-            self.dataSource.predicate = NSPredicate(format: "%K == NO", #keyPath(StoreApp.isBeta))
+            self.dataSource.predicate = NSPredicate(format: "%K == NO", #keyPath(StoreApp.isBranch))
         }
     }
     

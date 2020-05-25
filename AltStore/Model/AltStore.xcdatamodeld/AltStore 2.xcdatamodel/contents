@@ -86,6 +86,7 @@
         </uniquenessConstraints>
     </entity>
     <entity name="StoreApp" representedClassName="StoreApp" syncable="YES">
+        <attribute name="branch" optional="YES" attributeType="String"/ syncable="YES">
         <attribute name="bundleIdentifier" attributeType="String" syncable="YES"/>
         <attribute name="developerName" attributeType="String" syncable="YES"/>
         <attribute name="downloadURL" attributeType="URI" syncable="YES"/>

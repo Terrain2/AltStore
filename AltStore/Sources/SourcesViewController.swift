@@ -44,7 +44,7 @@ private extension SourcesViewController
             cell.tintColor = tintColor
                         
             cell.bannerView.iconImageView.isHidden = true
-            cell.bannerView.betaBadgeView.isHidden = true
+            cell.bannerView.branchBadgeView.isHidden = true
             cell.bannerView.buttonLabel.isHidden = true
             cell.bannerView.button.isHidden = true
             cell.bannerView.button.isIndicatingActivity = false

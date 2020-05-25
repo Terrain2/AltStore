@@ -351,7 +351,8 @@ extension NewsViewController
         footerView.bannerView.titleLabel.text = storeApp.name
         footerView.bannerView.subtitleLabel.text = storeApp.developerName
         footerView.bannerView.tintColor = storeApp.tintColor
-        footerView.bannerView.betaBadgeView.isHidden = !storeApp.isBeta
+        // IMPLEMENT TEXT CHANGING ACCORDING TO storeApp.branch HERE
+        footerView.bannerView.branchBadgeView.isHidden = !storeApp.isBranch
         footerView.bannerView.button.addTarget(self, action: #selector(NewsViewController.performAppAction(_:)), for: .primaryActionTriggered)
         footerView.tapGestureRecognizer.addTarget(self, action: #selector(NewsViewController.handleTapGesture(_:)))
         
