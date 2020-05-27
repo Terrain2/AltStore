@@ -36,7 +36,7 @@ class StoreApp: NSManagedObject, Decodable, Fetchable
     
     @NSManaged private(set) var developerName: String
     @NSManaged private(set) var localizedDescription: String
-    @NSManaged private(set) var size: Int32
+    @NSManaged private(set) var size: Int64
     
     @NSManaged private(set) var iconURL: URL
     @NSManaged private(set) var screenshotURLs: [URL]
@@ -132,7 +132,7 @@ class StoreApp: NSManagedObject, Decodable, Fetchable
             self.tintColor = tintColor
         }
         
-        self.size = try container.decode(Int32.self, forKey: .size)
+        self.size = try container.decode(Int64.self, forKey: .size)
         self.branch = try container.decodeIfPresent(String.self, forKey: .branch) ?? ""
         // remove legacyBeta sometime, let repos transition first (maybe with stable release?)
         let legacyBeta = try container.decodeIfPresent(Bool.self, forKey: .isBeta) ?? false
